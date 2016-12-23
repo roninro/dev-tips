@@ -1,0 +1,19 @@
+# cocoapods问题记录
+
+## 解决`pod setup` 总是失败的问题。
+
+问题：
+```
+[!] Unable to add a source with url `https://github.com/CocoaPods/Specs.git` named `master`.  
+You can try adding it manually in `~/.cocoapods/repos` or via `pod repo add`.  
+```
+不知道为什么突然这样。不知道是不是我科学上网的姿势不对，在下载了200M 以上，到最后都会失败。。。
+
+没办法只能自己动手了...
+
+```
+cd ~./cocoapods/repos
+git clone https://github.com/CocoaPods/Specs.git master 
+```
+
+最后 `pod install` Success
