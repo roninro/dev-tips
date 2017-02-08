@@ -1,0 +1,16 @@
+## RubyGems 镜像
+
+### 更换 RubyGems镜像
+
+```
+$ sudo gem update --system # 这里请翻墙一下
+$ gem -v
+```
+
+```
+$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
+$ gem sources -l
+https://gems.ruby-china.org
+```
+
+参考：[https://gems.ruby-china.org/](https://gems.ruby-china.org/)

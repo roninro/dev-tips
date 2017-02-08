@@ -1,0 +1,68 @@
+## BuglyHotfix集成（iOS）
+
+[Bugly 文档中心](https://bugly.qq.com/docs/user-guide/instruction-manual-ios-hotfix/?v=20170207114801)
+
+[JSPatch 基础用法](https://github.com/bang590/JSPatch/wiki/JSPatch-%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95)
+
+BuglyHotfix 基于 JSPatch 封装，完全兼容 JSPatch 编写的脚本文件。
+
+## Using
+### SDK 集成(cocoapod)
+```
+pod 'BuglyHotfix'
+```
+### 初始化SDK
+
+在工程的AppDelegate.m文件导入头文件
+> #import <BuglyHotfix/Bugly.h>
+
+- ** Objective-C **
+```
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        [Bugly startWithAppId:@"此处替换为你的AppId"
+#ifdef DEBUG
+        developmentDevice:YES
+#endif
+                   config:nil];
+    return YES;
+}
+```
+
+### 发布补丁
+#### 一. 本地测试
+- 将补丁文件main.js拖拽到工程内；
+- 开启 BuglyConfig 中的热更新本地调试模式;
+```
+    BuglyConfig *config = [[BuglyConfig alloc] init];
+    config.hotfixDebugMode = YES;
+    [Bugly startWithAppId:appId
+#ifdef DEBUG
+        developmentDevice:YES
+#endif
+                   config:config];
+```
+
+- 运行App测试补丁是否生效且工作正常。
+
+#### 二. 开发环境测试
+
+将`main.js`文件压缩成`zip`，通过`Bugly`平台发布补丁。
+
+- 移除工程内的`main.js`,关闭`BuglyConfig` 中的热更新本地调试模式
+
+```
+    BuglyConfig *config = [[BuglyConfig alloc] init];
+    config.hotfixDebugMode = NO;
+    config.debugMode = YES;
+    [Bugly startWithAppId:kBuglyAppId
+#ifdef DEBUG
+        developmentDevice:YES
+#endif
+                   config:config];
+```
+
+- 运行应用，测试补丁是否正常下发且生效，如 Bugly 成功应用了补丁，则会在控制台输出加载日志
+
+```
+运行应用，测试补丁是否正常下发且生效，如 Bugly 成功应用了补丁，则会在控制台输出加载日志
+```
