@@ -1,0 +1,3 @@
+## Podfile 
+using：http://guides.cocoapods.org/using/the-podfile.html
+Podfile Syntax Reference：http://guides.cocoapods.org/syntax/podfile.html
