@@ -1,0 +1,24 @@
+## enable the Categories and Tags for my blog in different theme
+
+- In icarus
+
+  copy `_source/categories` and `_source/tag` folder under your site's root folder, and then add menu to your `_config.yml`
+ ```
+ title: "Categories"
+ layout: "categories"
+ ---
+title: "Tags"
+layout: "tags"
+---
+ ```
+
+- In NexT
+
+```
+---
+title: categories
+date: 2016-12-09 15:59:21
+type: "categories"
+comments: false
+---
+```
