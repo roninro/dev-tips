@@ -1,15 +1,15 @@
 echo " number "
 #
-APP_NAME="LeTalk"
+APP_NAME="APP_NAME"
 #WORKSPACE
-WORKSPACE="TeamTalk"
+WORKSPACE="______"
 #SCHEME
-APP_SCHEME="LeTalk"
+APP_SCHEME="_____"
 
 NET
 
 # info.plist路径
-project_infoplist_path="./TeamTalk/Info.plist"
+project_infoplist_path="./__replace____/Info.plist"
 
 #取版本号
 bundleShortVersion=$(/usr/libexec/PlistBuddy -c "print CFBundleShortVersionString" "${project_infoplist_path}")
@@ -24,10 +24,10 @@ IPANAME="V${bundleShortVersion}_${DATE}_$1.ipa"
 
 # upload path
 #要上传的ipa文件路径
-IPA_PATH="Desktop/ipa_LeTalk"
+IPA_PATH="Desktop/ipa_APP"
 echo ${IPA_PATH}
 
-# Xcode 8.0+ Automatically manager signing 
+# Xcode 8.0+ manager signing Automatically
 echo "=================Debug clean================="
 xcodebuild -workspace "${WORKSPACE}.xcworkspace" -scheme "${APP_SCHEME}"  -configuration 'Debug' clean
 
